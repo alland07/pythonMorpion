@@ -1,7 +1,7 @@
-import pygame
+import sys
 
-from classes.board import *
 from classes.gridView import *
+from winner import display_winner
 
 
 class Game:
@@ -11,7 +11,7 @@ class Game:
     self.player = 1
     self.played_token = 0
     self.winner = False
-    self.gameView = GridView()
+    self.grid = GridView()
     self.board = Board()
 
   def get_player(self):
@@ -23,16 +23,34 @@ class Game:
     return number
 
   def start(self):
+    pygame.init()
     while self.winner != "Yellow" and self.winner != "Red" and self.played_token < self.max_token:
       # players play
       for event in pygame.event.get():
-        self.board.display()
         if event.type == pygame.MOUSEBUTTONUP:
+          # Get mouse position on the grid
           x, y = pygame.mouse.get_pos()
+          # Get current user
           player = self.get_player()
-        elif event.type == event.KEYDOWN:
-          if event.key == pygame.K_ESCAPE:
-            pygame.exit()
-        elif event.type == pygame.QUIT:
-          pygame.exit()
+          # Get current column used
+          column = self.grid.get_column(x)
+          # Play a token for the user
+          self.board.play_token(player, column)
+          # Check if we get a winner
+          self.played_token += 1
+          self.winner = self.board.get_winner()
+          # Display again the grid
+          self.grid.render(self.board.board)
+          self.grid.game.display.flip()
 
+        # Close the game
+        elif event.type == pygame.KEYDOWN:
+          if event.key == pygame.K_ESCAPE:
+            # Press escape
+            pygame.quit()
+        elif event.type == pygame.QUIT:
+          # Quit event
+          pygame.quit()
+          sys.exit()
+
+    display_winner(self.winner)
