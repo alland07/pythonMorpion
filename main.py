@@ -3,30 +3,14 @@ import pygame
 import time
 
 # import Locals
-from classes.grid import Plateau
+from classes.game import Game
+
+pygame.init()
 
 # Screen
-pygame.display.set_mode((800, 750))
-pygame.display.set_caption("Puissance 4")
+window = pygame.display.set_mode((800, 700))
+pygame.display.set_caption("Puissancfe 4")
 
-# Init Game Plateau
-plateau = Plateau()
+game = Game()
+game.start()
 
-loop = True
-endGame = False
-
-while loop:
-    for event in pygame.event.get():
-      if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_j:
-          endGame = True
-          loop = False
-
-
-def closeScreen():
-  pygame.quit()
-
-
-# Close the game
-if endGame:
-  closeScreen()
