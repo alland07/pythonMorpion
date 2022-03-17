@@ -40,6 +40,7 @@ class GridView:
     # Refresh the screen
     self.screen.fill((0, 0, 0))
     self.screen.blit(self.grid_picture, (0, 0))
+    # Revert is use to put the tab in the revert way, so it's easier to loop over
     revert = self.game_board.revert_board(board)
     # On re parcourt le board pour le render
     for i in range(len(revert)):

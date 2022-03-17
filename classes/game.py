@@ -8,7 +8,6 @@ class Game:
   max_token = 42
 
   def __init__(self):
-    self.player = 1
     self.played_token = 0
     self.winner = False
     self.grid = GridView()

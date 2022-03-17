@@ -1,6 +1,6 @@
 #from main import end_screen
 
-
+# Class Winner
 class Winner:
 
   def __init__(self, board_vars, board_tab):
@@ -14,8 +14,8 @@ class Winner:
     line = 5
     # Stop the loop
     end_game = False
-    # Check every lines
-    while line >= 0 and end_game == False:
+    # Check every lines to see if there is a winner
+    while line >= 0 and not end_game:
       for column in range(4):
         if self.horizontal_array_check(line, column) == self.board.red_won:
           winner = "Red"
@@ -24,7 +24,7 @@ class Winner:
           winner = "Yellow"
           end_game = True
       line -= 1
-        # retourne la variable winner
+    # retourne la variable winner
     return winner
 
   def vertical_winner(self):
@@ -33,8 +33,8 @@ class Winner:
     # 7 columns
     column = 6
     end_game = False
-    #Check every columns
-    while column >= 0 and end_game == False:
+    # Check every columns to see if there is a vertical winner
+    while column >= 0 and not end_game:
       for line in range(3):
         if self.vertical_array_check(line, column) == self.board.red_won:
           end_game = True
@@ -46,7 +46,7 @@ class Winner:
     return winner
 
   def diagonal_winner(self):
-    # We loop over from top left to bottom right
+    # We loop over the grid from top left to bottom right
     winner = ""
     for line in range(3):
       for column in range(4):
@@ -77,6 +77,7 @@ class Winner:
 
 
 def display_winner(winner):
+  # Display the Winner at the end
   if winner == "Red":
    print("Red Won")
   elif winner == "Yellow":
