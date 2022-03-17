@@ -1,3 +1,5 @@
+# Rendu Allan DUCHE IWM2 - semaine du 14 au 17 Mars
+
 # Python Puissance 4
 
 Ce jeu du puissance 4 codé en python a pour but d'aligner 4 pions rouge ou jaune.
