@@ -12,7 +12,7 @@ class GridView:
     self.game = pygame
     self.column = 0
     pygame.init()
-    # Taille du plateau
+    # Taille du platea
     self.grid_picture = self.game.image.load('assets/grid.png')
     width = self.grid_picture.get_size()
     self.board_width = (width[0], width[1])

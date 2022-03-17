@@ -1,4 +1,4 @@
-from winner import *
+from classes.winner import *
 
 
 class Board:

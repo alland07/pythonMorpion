@@ -1,7 +1,7 @@
 import sys
 
 from classes.gridView import *
-from winner import display_winner
+from classes.winner import display_winner
 
 
 class Game:
