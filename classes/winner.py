@@ -81,6 +81,5 @@ def display_winner(winner):
    print("Red Won")
   elif winner == "Yellow":
    print("Yellow won")
-  # Should not be trigger at all
   else:
-   print(winner)
+   print("Match nul")

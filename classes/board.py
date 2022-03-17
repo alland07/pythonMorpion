@@ -36,7 +36,7 @@ class Board:
   def play_token(self, gamer, column):
     line = 5
     put = False
-    while line >= 0 and put == False:
+    while line >= 0 and not put:
       if self.board[line][column] == self.empty:
         if gamer == self.red_token:
           self.board[line][column] = self.red_token
@@ -46,7 +46,7 @@ class Board:
           put = True
       if line > 0:
         line -= 1
-      elif line == 0 and put == False:
+      elif line == 0 and not put:
         return False
     return True
 
