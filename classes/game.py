@@ -35,13 +35,14 @@ class Game:
           # Get current column used
           column = self.grid.get_column(x)
           # Play a token for the user
-          self.board.play_token(player, column)
+          played_token = self.board.play_token(player, column)
           # Check if we get a winner
-          self.played_token += 1
-          self.winner = self.board.get_winner()
-          # Display again the grid
-          self.grid.render(self.board.board)
-          self.grid.game.display.flip()
+          if played_token:
+            self.played_token += 1
+            self.winner = self.board.get_winner()
+            # Display again the grid
+            self.grid.render(self.board.board)
+            self.grid.game.display.flip()
 
         # Close the game
         elif event.type == pygame.KEYDOWN:

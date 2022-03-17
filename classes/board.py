@@ -44,7 +44,11 @@ class Board:
         elif gamer == self.yellow_token:
           self.board[line][column] = self.yellow_token
           put = True
-      line = line - 1
+      if line > 0:
+        line -= 1
+      elif line == 0 and put == False:
+        return False
+    return True
 
   def revert_board(self, old_board):
     revert_board = []
